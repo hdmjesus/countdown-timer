@@ -5,7 +5,7 @@ module.exports = {
   },
 
   theme: {
-    fontFamily: { title: ["Markazi Text"], body: ["Montserrat"] },
+    fontFamily: { body: ["Red Hat Text"] },
     screens: {
       xsm: "400px",
       sm: "640px",
@@ -25,17 +25,13 @@ module.exports = {
 
     extend: {
       colors: {
-        primary: "#00CCBA",
-        second: "#22706A",
-        variants: "#F08D78",
-        details: "#6E8A87",
-        black: "#302f2f",
+        darkBlue: "#343650",
+        veryDarkBlue: "#1e1f29",
+        VeryMostDarkBlue: "#191a24",
+        primaryBlue: "#8486a9",
+        softRed: "#fb6087",
         gray: "#CFCFCF",
         body: "#f2f2f2",
-        actions: "rgba(0,0,0,0.3)",
-        BGmenuMobile: "#353131",
-        fontMenuMobile: "#f5f0f0",
-        menuMobile: "#353131",
       },
       fontSize: {
         "9xl": "9rem",

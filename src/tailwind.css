@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dataCard__side--a {
+  border-radius: 7px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom: 0.5px solid #0000003b;
+}
+
+.dataCard__side--b {
+  border-radius: 5px;
+  border-bottom-right-radius: 7px;
+}
+
+.socialMedia {
+  left: calc(50% - 50px);
+}
+
+.hills {
+  background-size: cover;
+}
+
+.stars {
+  background-size: cover;
+}
