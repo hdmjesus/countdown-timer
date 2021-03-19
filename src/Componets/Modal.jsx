@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 
 const Modal = ({ off, deadlineModal }) => {
   const datenext = useRef();
