@@ -1,43 +1,48 @@
-import React, { useState, useEffect } from "react";
-import DateItem from "./DateItem";
+import React, { useState, useEffect, useRef } from "react";
+import DateItemDays from "./DateItemDays";
+import DateItemHours from "./DateItemHours";
+import DateItemMinutes from "./DateItemMinutes";
+import DateItemSeconds from "./DateItemSeconds";
+import useInterval from "../Hooks/useInterval";
 
 const DateState = ({ deadlineNext, on }) => {
-  const [days, setDays] = useState();
-  const [hours, setHours] = useState();
-  const [minutes, setMinutes] = useState();
-  const [seconds, setSeconds] = useState();
-  const [remainTime, setRemainTime] = useState();
+  const [time, setDate] = useState({
+    days: null,
+    hours: null,
+    minutes: null,
+    seconds: null,
+    remainTime: null,
+  });
+  const [comp, setComp] = useState();
 
-  const getTimeup = (deadlineNext) => {
-    const now = new Date();
-    let remainTime = (now - new Date(`${deadlineNext}`) + 1000) / 1000;
+  const { days, hours, minutes, seconds, remainTime } = time;
 
-    setRemainTime(remainTime);
-    setSeconds(("0" + Math.abs(Math.floor(remainTime % 60))).slice(-2));
-    setMinutes(("0" + Math.abs(Math.floor((remainTime / 60) % 60))).slice(-2));
-    setHours(("0" + Math.abs(Math.floor((remainTime / 3600) % 24))).slice(-2));
-    setDays(("0" + Math.abs(Math.floor(remainTime / (3600 * 24)))).slice(-2));
-  };
+  function culo() {
+    let now = new Date();
+    let fecha = new Date(deadlineNext);
+    const timeup = (fecha.getTime() - now.getTime()) / 1000;
+    let dias = Math.floor(timeup / (3600 * 24));
+    let horas = Math.floor((timeup / 3600) % 24);
+    let minutos = Math.floor((timeup / 60) % 60);
+    let segundos = Math.floor(timeup % 60);
+    console.log("componente montado");
+    setDate({
+      ...time,
+      days: dias,
+      hours: horas,
+      seconds: segundos,
+      minutes: minutos,
+    });
+  }
 
-  useEffect(() => {
-    const timeUdapte = () => {
-      const interval = setInterval(() => {
-        getTimeup(deadlineNext);
-        if (remainTime <= 0) {
-          clearInterval(interval);
-          on();
-        }
-      }, 1000);
-    };
-    timeUdapte();
-    // setInterval(timeUdapte, 1000);
-  }, [seconds]);
+  useInterval(culo, 1000);
   return (
     <div className="date flex p-1">
-      <DateItem date="Day" days={days} />
-      <DateItem date="Hours" hours={hours} />
-      <DateItem date="Minutes" minutes={minutes} />
-      <DateItem date="Seconds" seconds={seconds} />
+      <DateItemDays date="Day" days={days} />
+      <DateItemHours date="Hours" hours={hours} />
+      <DateItemMinutes date="Minutes" minutes={minutes} />
+      <DateItemSeconds date="Seconds" seconds={seconds} />
+      {/* <button onClick={culo}>Evento</button> */}
     </div>
   );
 };

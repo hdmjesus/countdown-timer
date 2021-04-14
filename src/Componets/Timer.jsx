@@ -18,7 +18,7 @@ const Timer = () => {
         {" "}
         We're launching soon
       </h1>
-      {!ActivateModal && (
+      {ActivateModal == false && (
         <DateState on={handleModalOn} deadlineNext={Deadline} />
       )}
 

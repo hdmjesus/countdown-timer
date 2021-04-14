@@ -1,14 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+.card__container.days {
+  border-radius: 7px;
+  opacity: 0;
+}
 .dataCard__side--a {
   border-radius: 7px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom: 0.5px solid #0000003b;
 }
-
+.dataCard__side--a.active {
+  border-bottom: 0.5px solid #0000003b;
+  animation-name: abanico;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  /* animation-iteration-count: infinite; */
+}
+.card__container.days.active {
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  /* transition: 1s;
+  transition-delay: 0.5s; */
+}
 .dataCard__side--b {
   border-radius: 5px;
   border-bottom-right-radius: 7px;
@@ -54,4 +71,21 @@
   border-radius: 5px;
   z-index: 999;
   transition: top 0.35s ease;
+}
+
+@keyframes abanico {
+  0% {
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, 180deg) translateY(-40px);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
