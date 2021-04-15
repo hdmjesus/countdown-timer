@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 
-const DateItem = ({ date, seconds, minutes, hours, days }) => {
+const DateItemHours = ({ date, seconds, minutes, hours, days }) => {
   useEffect(() => {
-    const sideA = document.querySelector(".dataCard__side--a");
+    const sideA = document.querySelector(".dataCard__side--a.hours");
     const cardContainer = document.querySelector(".card__container.hours");
 
-    function addAnimation() {
+    function addAnimationHours() {
       sideA.classList.add("active");
       cardContainer.classList.add("active");
     }
@@ -13,13 +13,13 @@ const DateItem = ({ date, seconds, minutes, hours, days }) => {
       sideA.classList.remove("active");
       cardContainer.classList.remove("active");
     });
-    addAnimation();
+    addAnimationHours();
   }, [hours]);
   return (
     <div className="dateCard  items-center m-1  justify-center w-20   text-sm ">
       <div className="dataCard__container relative w-full">
-        <div class="card__container hours bg-darkBlue absolute left-0 bottom-0 right-0 top-0"></div>
-        <div className="dataCard__side--a bg-darkBlue w-full h-10 p-2 "></div>
+        <div className="card__container hours bg-darkBlue absolute left-0 bottom-0 right-0 top-0"></div>
+        <div className="dataCard__side--a hours bg-darkBlue w-full h-10 p-2 "></div>
         <div className="dataCard__counter absolute inset-0 top-4 ">
           <p className="text-softRed text-4xl text-center">{hours}</p>
         </div>
@@ -30,4 +30,4 @@ const DateItem = ({ date, seconds, minutes, hours, days }) => {
   );
 };
 
-export default DateItem;
+export default DateItemHours;

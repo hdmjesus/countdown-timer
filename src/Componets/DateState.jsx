@@ -25,7 +25,7 @@ const DateState = ({ deadlineNext, on }) => {
     let horas = Math.floor((timeup / 3600) % 24);
     let minutos = Math.floor((timeup / 60) % 60);
     let segundos = Math.floor(timeup % 60);
-    console.log("componente montado");
+
     setDate({
       ...time,
       days: dias,

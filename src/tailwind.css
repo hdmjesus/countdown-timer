@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.card__container.days {
+.card__container {
   border-radius: 7px;
   opacity: 0;
 }
@@ -11,14 +11,59 @@
   border-bottom-left-radius: 5px;
   border-bottom: 0.5px solid #0000003b;
 }
-.dataCard__side--a.active {
+.dataCard__side--a.seconds.active {
   border-bottom: 0.5px solid #0000003b;
   animation-name: abanico;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  /* animation-iteration-count: infinite; */
+}
+.dataCard__side--a.minutes.active {
+  border-bottom: 0.5px solid #0000003b;
+  animation-name: abanico;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  /* animation-iteration-count: infinite; */
+}
+.dataCard__side--a.hours.active {
+  border-bottom: 0.5px solid #0000003b;
+  animation-name: abanico;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  /* animation-iteration-count: infinite; */
+}
+.dataCard__side--a.days.active {
+  border-bottom: 0.5px solid #0000003b;
+  animation-name: abanico;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
   /* animation-iteration-count: infinite; */
 }
 .card__container.days.active {
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  /* transition: 1s;
+  transition-delay: 0.5s; */
+}
+.card__container.seconds.active {
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  /* transition: 1s;
+  transition-delay: 0.5s; */
+}
+.card__container.minutes.active {
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  /* transition: 1s;
+  transition-delay: 0.5s; */
+}
+.card__container.hours.active {
   animation-name: fade;
   animation-duration: 1s;
   animation-delay: 0.5s;
